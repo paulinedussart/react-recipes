@@ -1,0 +1,13 @@
+/* Home Page */
+#connect-part {
+  height: 100vh;
+}
+
+.fa-cookie-bite {
+  color: #426959;
+}
+
+#title-app-bold-black {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+}

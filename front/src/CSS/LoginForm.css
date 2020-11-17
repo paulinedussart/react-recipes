@@ -1,4 +1,11 @@
 #login-form,
 .form-control {
   width: 300px !important;
+  margin: auto;
+}
+
+.form-login {
+  height: calc(100vh - 59px);
+  align-items: center;
+  display: flex;
 }
