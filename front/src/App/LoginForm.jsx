@@ -18,6 +18,7 @@ export default function LoginForm ({onConnect}) {
 				method: "POST",
 				body: data
 			})
+			console.log(user);
 			// will create a state change and refresh App
 			onConnect(user)
 		} catch (error) {

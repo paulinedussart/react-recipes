@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import LoginForm from './App/LoginForm';
+import { Site } from './App/Site';
 import Logo from './cookingHome.svg';
 import "./CSS/Connect.css";
 import "./CSS/CookingLogoHome.css";
@@ -17,7 +18,6 @@ export default function App() {
 	}, [])
 
 	if (user == null) {
-		//add spiner later
 		return (
 			<div className="text-center mt-5">
 				<div className="spinner-border" role="status">
@@ -27,10 +27,10 @@ export default function App() {
 		);
 	}
 
-	return (user ? <div>Connecté</div> : 
+	return (user ? <Site/> : 
 		<div className="row">
 			<div id="connect-part" className="col-4 bg-white">
-			<i className="fas fa-cookie-bite p-3 fa-lg"> </i><b id="title-app-bold-black">Pauline's Cooking Corner</b>	 
+				<i className="fas fa-cookie-bite p-3 fa-lg"> </i><b id="title-app-bold-black">Flavour</b>	 
 				<div className="form-login">
 					<LoginForm className="align-items-center"	onConnect={setUser}/>
 				</div>	
