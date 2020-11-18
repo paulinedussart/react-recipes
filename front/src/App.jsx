@@ -31,9 +31,10 @@ export default function App() {
 		<div className="row">
 			<div id="connect-part" className="col-4 bg-white">
 				<i className="fas fa-cookie-bite p-3 fa-lg"> </i><b id="title-app-bold-black">Flavour</b>	 
-				<div className="form-login">
+				<div className="form-login d-flex align-content-between flex-column">
 					<LoginForm className="align-items-center"	onConnect={setUser}/>
-				</div>	
+					<div className="text-center mb-1">Dont't have an account yet ? <b className="text-green">Sign Up Here</b></div>
+				</div>
 			</div>
 			<div>
 			</div>	

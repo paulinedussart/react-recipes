@@ -3,8 +3,7 @@
 }
 
 #sidebar-list ul > li {
-  line-height: 2.5em;
-  position: relative;
+  line-height: 5em;
 }
 
 #sidebar-list {
@@ -15,21 +14,22 @@
   border-radius: 35px;
   min-height: 80vh;
   width: 230px !important;
-  background-color: #f5a25d;
+  background-color: var(--main-bg-orange);
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
 #sidebar-list a {
   color: black;
-  display: block;
+  /* display: block; */
+  padding: 16px;
+  border-radius: 30px;
+  background-color: var(--main-orange);
 }
 
 #sidebar-list a:hover,
 #sidebar-list li.active a {
   color: white;
-  background-color: #426959;
-  border-radius: 30px;
-  padding-left: auto 15px;
+  background-color: var(--main-bg-green);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
 }

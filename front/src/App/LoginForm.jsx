@@ -32,17 +32,24 @@ export default function LoginForm ({onConnect}) {
 
 	return (
 		<form id="login-form" onSubmit={handleSubmit}>
-			<h2 className="mb-5">Sign In</h2>
+			<h2 className="mb-4">Sign In</h2>
 			{error && <Alert>{error}</Alert>}
 			<div className="form-group">
 				<label htmlFor="email">Username</label>
-				<input type="text" name="email" id="email" placeholder='gatsby16' className="form-control" required/>
+				<input type="text" name="email" id="email" placeholder='user' className="form-control" required/>
 			</div>
 			<div className="form-group">
 				<label htmlFor="password">Password</label>
-				<input type="password" name="password" placeholder="********" id="password" className="form-control" required/>
+				<input type="password" name="password" placeholder="******" id="password" className="form-control" required/>
 			</div>
-			<button disabled={loading} type='submit' className="btn btn-success">Sign in</button>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+				<label class="form-check-label" for="defaultCheck1">
+					Remember me
+			  </label>
+			</div>
+			<button disabled={loading} type='submit' className="btn btn-green w-100 mt-3">Sign in</button>
+			<a html='#' id="forgot-password" className="d-flex justify-content-center mt-1"><b>Forgot password ?</b></a>	
 		</form>
 	)
 }

@@ -7,5 +7,33 @@
 .form-login {
   height: calc(100vh - 59px);
   align-items: center;
-  display: flex;
+  /* display: flex; */
+}
+
+.btn-green {
+  background-color: var(--main-bg-green);
+  color: white;
+  border-radius: 23px;
+  font-weight: 700;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-green:hover {
+  background-color: var(--main-bg-orange);
+  color: black;
+}
+
+#forgot-password {
+  font-size: 15px;
+  color: #000000cc;
+}
+#forgot-password:hover {
+  font-size: 15px;
+  color: var(--main-bg-orange);
+  cursor: pointer !important;
+}
+
+.text-green {
+  color: var(--main-bg-green);
+  font-size: 18px;
 }

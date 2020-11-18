@@ -7,7 +7,7 @@ export function Site() {
 
 	return ( <div>
 		<LogoApp />
-		<div id="home-content"	className="row">
+		<div id="home-content"	className="row mt-4">
 			<div  className="col-md-auto  h-100">
 				<SideBar currentPage={page} onChangePage={setPage}/>
 			</div>
@@ -36,10 +36,10 @@ function SideBar({ currentPage, onChangePage }) {
 	}
 	
 	return (
-		<div id="sidebar-list" className="h-75 mt-4 d-flex justify-content-center">
+		<div id="sidebar-list" className="h-75 d-flex justify-content-center">
 			<ul className="mt-5 list-unstyled p-4">
 				<li className={activeClass("recipes")} onClick={() => handleClick("recipes")}>
-					<a href="#" className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>Recipes</a>
+					<a href="#" className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>All Recipes</a>
 				</li>
 				<li className={activeClass("ingredients")} onClick={() => handleClick("ingredients")}>
 					<a href="#" className="text-decoration-none px-3"><i className="fas fa-carrot mr-3"></i>Ingredients</a>

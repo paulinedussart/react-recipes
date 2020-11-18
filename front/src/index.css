@@ -14,3 +14,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root {
+  --main-bg-orange: #f5a25d;
+  --main-bg-green: #426959;
+}
