@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   border-radius: 50%;
-  animation: animate 9s linear infinite;
+  animation: animate 15s linear infinite;
 }
 
 @keyframes animate {
