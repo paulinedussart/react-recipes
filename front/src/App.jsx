@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import LoginForm from './App/LoginForm';
 import { Site } from './App/Site';
 import Logo from './cookingHome.svg';
-import "./CSS/Connect.css";
-import "./CSS/CookingLogoHome.css";
+import "./CSS/Connect.scss";
+import "./App.scss";
+import "./CSS/CookingLogoHome.scss";
 import { apiFetch } from './Functions/api';
 
 export default function App() {

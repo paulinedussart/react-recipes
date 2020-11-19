@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import './../CSS/LoginForm.css';
+import './../CSS/LoginForm.scss';
 import { ApiError, apiFetch } from '../Functions/api';
 
 export default function LoginForm ({onConnect}) {
@@ -49,7 +49,7 @@ export default function LoginForm ({onConnect}) {
 			  </label>
 			</div>
 			<button disabled={loading} type='submit' className="btn btn-green w-100 mt-3">Sign in</button>
-			<a html='#' id="forgot-password" className="d-flex justify-content-center mt-1"><b>Forgot password ?</b></a>	
+			<a id="forgot-password" className="d-flex justify-content-center mt-1"><b>Forgot password ?</b></a>	
 		</form>
 	)
 }

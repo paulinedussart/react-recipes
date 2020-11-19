@@ -1,4 +1,4 @@
-import "./../CSS/Home.css";
+import "./../CSS/Home.scss";
 import React, { useState } from "react";
 
 export function Site() {
