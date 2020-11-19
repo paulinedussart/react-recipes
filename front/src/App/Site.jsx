@@ -39,13 +39,13 @@ function SideBar({ currentPage, onChangePage }) {
 		<div id="sidebar-list" className="h-75 d-flex justify-content-center">
 			<ul className="mt-5 list-unstyled p-4">
 				<li className={activeClass("recipes")} onClick={() => handleClick("recipes")}>
-					<a href="#" className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>All Recipes</a>
+					<a href={() => handleClick("recipes")} className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>All Recipes</a>
 				</li>
 				<li className={activeClass("ingredients")} onClick={() => handleClick("ingredients")}>
-					<a href="#" className="text-decoration-none px-3"><i className="fas fa-carrot mr-3"></i>Ingredients</a>
+					<a href={() => handleClick("ingredients")} className="text-decoration-none px-3"><i className="fas fa-carrot mr-3"></i>Ingredients</a>
 				</li>
 				<li className={activeClass("newRecipe")} onClick={() => handleClick("newRecipe")}>
-					<a href="#" className="text-decoration-none px-3"><i className="fas fa-plus mr-3"></i>New Recipe</a>
+					<a href={() => handleClick("newRecipe")} className="text-decoration-none px-3"><i className="fas fa-plus mr-3"></i>New Recipe</a>
 				</li>
 			</ul>
 		</div>

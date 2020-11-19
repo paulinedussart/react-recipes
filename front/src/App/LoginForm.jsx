@@ -49,7 +49,7 @@ export default function LoginForm ({onConnect}) {
 			  </label>
 			</div>
 			<button disabled={loading} type='submit' className="btn btn-green w-100 mt-3">Sign in</button>
-			<a id="forgot-password" className="d-flex justify-content-center mt-1"><b>Forgot password ?</b></a>	
+			<a href="/www.paulinedussart.com/" id="forgot-password" className="d-flex justify-content-center mt-1"><b>Forgot password ?</b></a>	
 		</form>
 	)
 }
