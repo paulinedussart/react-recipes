@@ -1,0 +1,26 @@
+// Btn Submit Form
+.btn-green {
+  background-color: var(--main-bg-green);
+  color: white;
+  border-radius: 23px;
+  font-weight: 700;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: var(--main-bg-orange);
+    color: black;
+  }
+}
+
+.btn-red-delete {
+  color: #e26161;
+
+  &:hover {
+    color: #bb3636;
+  }
+
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+  }
+}

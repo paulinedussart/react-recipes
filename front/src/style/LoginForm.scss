@@ -1,0 +1,10 @@
+#landing-connect-part {
+  height: calc(100vh - 59px);
+  align-items: center;
+
+  #login-form,
+  .form-control {
+    width: 300px !important;
+    margin: auto;
+  }
+}

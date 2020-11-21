@@ -1,0 +1,27 @@
+// Logo and Name's App
+.fa-cookie-bite {
+  color: #426959;
+}
+
+#title-app-bold-black {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+}
+
+// Forget Password
+#forgot-password {
+  font-size: 15px;
+  color: #000000cc;
+
+  &:hover {
+    font-size: 15px;
+    color: var(--main-bg-orange);
+    cursor: pointer !important;
+  }
+}
+
+// Typo for the **Sign Up Here**
+.text-green {
+  color: var(--main-bg-green);
+  font-size: 18px;
+}

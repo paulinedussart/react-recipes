@@ -1,7 +1,7 @@
+// Functions 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import './../CSS/LoginForm.scss';
-import { ApiError, apiFetch } from '../Functions/api';
+import { ApiError, apiFetch } from '../functions/api';
 
 export default function LoginForm ({onConnect}) {
 	const [error, setError] = useState(null);
@@ -42,9 +42,9 @@ export default function LoginForm ({onConnect}) {
 				<label htmlFor="password">Password</label>
 				<input type="password" name="password" placeholder="******" id="password" className="form-control" required/>
 			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-				<label class="form-check-label" for="defaultCheck1">
+			<div className="form-check">
+				<input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+				<label className="form-check-label" for="defaultCheck1">
 					Remember me
 			  </label>
 			</div>

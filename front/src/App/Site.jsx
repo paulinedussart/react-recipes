@@ -1,9 +1,26 @@
-import "./../CSS/Home.scss";
-import React, { useState } from "react";
+// Functions 
+import React, { useEffect, useState } from "react";
+import { useIngredients } from "../hooks/ingredients";
+import { Ingredients } from './ Ingredients/Ingredients'
+// SCSS
+import "./../style/SideBar.scss";
 
 export function Site() {
 	// detect the actual page
 	const [page, setPage] = useState('ingredients');
+	// get the hook useIngredients
+	const { ingredients, fetchIngredients, deleteIngredient } = useIngredients()
+	let content = null
+
+	useEffect(() => {
+		if (page === "ingredients") {
+			fetchIngredients()
+		}
+	}, [page])
+
+	if (page === 'ingredients') {
+		content = <Ingredients ingredients={ingredients} onDelete={deleteIngredient} />
+	}
 
 	return ( <div>
 		<LogoApp />
@@ -12,7 +29,7 @@ export function Site() {
 				<SideBar currentPage={page} onChangePage={setPage}/>
 			</div>
 			<div className="col-9">
-				{page}
+				{content}
 			</div>
 		</div>
 	</div>
@@ -39,13 +56,13 @@ function SideBar({ currentPage, onChangePage }) {
 		<div id="sidebar-list" className="h-75 d-flex justify-content-center">
 			<ul className="mt-5 list-unstyled p-4">
 				<li className={activeClass("recipes")} onClick={() => handleClick("recipes")}>
-					<a href={() => handleClick("recipes")} className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>All Recipes</a>
+					<a href="#" className="text-decoration-none px-3"><i className="fas fa-book mr-3"></i>All Recipes</a>
 				</li>
 				<li className={activeClass("ingredients")} onClick={() => handleClick("ingredients")}>
-					<a href={() => handleClick("ingredients")} className="text-decoration-none px-3"><i className="fas fa-carrot mr-3"></i>Ingredients</a>
+					<a href="#" className="text-decoration-none px-3"><i className="fas fa-carrot mr-3"></i>Ingredients</a>
 				</li>
 				<li className={activeClass("newRecipe")} onClick={() => handleClick("newRecipe")}>
-					<a href={() => handleClick("newRecipe")} className="text-decoration-none px-3"><i className="fas fa-plus mr-3"></i>New Recipe</a>
+					<a href="#" className="text-decoration-none px-3"><i className="fas fa-plus mr-3"></i>New Recipe</a>
 				</li>
 			</ul>
 		</div>
