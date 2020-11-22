@@ -9,7 +9,12 @@ export function Site() {
 	// detect the actual page
 	const [page, setPage] = useState('ingredients');
 	// get the hook useIngredients
-	const { ingredients, fetchIngredients, deleteIngredient } = useIngredients()
+	const {
+		ingredients,
+		fetchIngredients,
+		deleteIngredient,
+		updateIngredient
+	} = useIngredients()
 	let content = null
 
 	useEffect(() => {
@@ -19,7 +24,7 @@ export function Site() {
 	}, [page])
 
 	if (page === 'ingredients') {
-		content = <Ingredients ingredients={ingredients} onDelete={deleteIngredient} />
+		content = <Ingredients ingredients={ingredients} onDelete={deleteIngredient} onUpdate={updateIngredient} />
 	}
 
 	return ( <div>

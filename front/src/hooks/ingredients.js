@@ -15,7 +15,7 @@ function reducer(state, action) {
 		case 'UPDATE_INGREDIENT':
 			return {...state, listOfIngredients: state.listOfIngredients.map(i => i === action.target ? action.data : i)}
 		default:
-			return null;
+			throw new Error('Action inconnue' + action.type)
 		}
 	}
 		
@@ -42,6 +42,13 @@ export function useIngredients() {
 				method: 'DELETE'
 			});
 			dispatch({ type: 'DELETE_INGREDIENT', data: ingredient})
-		}
+		}, 
+		updateIngredient: async function(ingredient, infoToApi) {
+			const updatedIngredient = await apiFetch("/ingredients/" + ingredient.id, {
+				method: 'PUT', 
+				body: infoToApi
+			});
+			dispatch({ type: 'UPDATE_INGREDIENT', data: updatedIngredient, target: ingredient })
+		} 
 	}
 }

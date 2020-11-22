@@ -14,9 +14,24 @@
 
 .btn-red-delete {
   color: #e26161;
+  transition: 0.2s;
 
   &:hover {
     color: #bb3636;
+    transform: scale(1.2);
+  }
+
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+  }
+}
+
+.btn-blue-update {
+  color: #78b0f7;
+  &:hover {
+    color: #5789ca;
+    transform: scale(1.2);
   }
 
   &:active {
