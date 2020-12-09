@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import LoginForm from './App/LoginForm';
 import { Site } from './App/Site';
-import { Loader } from './shared/loader';
+import { Loader } from './shared/Loader';
 // images
 import Logo from './cookingHome.svg';
 // SCSS
@@ -19,6 +19,7 @@ export default function App() {
 
 	// lancer qqch lorsque notre composant est monté
 	useEffect(function () {
+		// me permet de verifier l'etat de l'autenthication du user à partir de son cookie
 		apiFetch("/me")
 		.then(user => setUser(user))
 		.catch(() => setUser(false))

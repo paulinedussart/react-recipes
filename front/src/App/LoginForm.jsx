@@ -14,6 +14,7 @@ export default function LoginForm ({onConnect}) {
 		// allows to easily build a set of key/value pairs representing the form fields and their values
 		const data = new FormData(e.target)
 		try {
+			// login permet de definir le cookie qui sera ensuite utilisé par /me
 			const user = await apiFetch("/login", {
 				method: "POST",
 				body: data

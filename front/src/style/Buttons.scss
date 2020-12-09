@@ -1,7 +1,7 @@
 // Btn Submit Form
 .btn-green {
   background-color: var(--main-bg-green);
-  color: white;
+  color: var(--main-bg-white);
   border-radius: 23px;
   font-weight: 700;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -13,11 +13,11 @@
 }
 
 .btn-red-delete {
-  color: #e26161;
+  color: var(--main-bg-light-red);
   transition: 0.2s;
 
   &:hover {
-    color: #bb3636;
+    color: var(--main-bg-red);
     transform: scale(1.2);
   }
 
@@ -28,14 +28,57 @@
 }
 
 .btn-blue-update {
-  color: #78b0f7;
+  border: none;
+  background-color: transparent;
+  color: var(--main-bg-light-blue);
   &:hover {
-    color: #5789ca;
+    color: var(--main-bg-blue);
     transform: scale(1.2);
   }
 
   &:active {
     /* Scaling button to 0.85 to its original size */
     transform: scale(0.85);
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.btn-purple-create {
+  color: var(--main-bg-light-purple);
+  background-color: transparent;
+  border: none;
+  transition: 0.2s;
+  &:hover {
+    color: var(--main-bg-purple);
+    transform: scale(1.2);
+  }
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.btn-green-details {
+  border: none;
+  background-color: var(--main-bg-light-green);
+  color: color;
+  &:hover {
+    transform: scale(1.05);
+    background-color: var(--main-bg-green) !important;
+  }
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+    outline: none !important;
+    background-color: var(--main-bg-green) !important;
+  }
+  &:focus {
+    outline: none !important;
+    background-color: var(--main-bg-green) !important;
   }
 }

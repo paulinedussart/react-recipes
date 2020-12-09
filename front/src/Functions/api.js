@@ -6,7 +6,6 @@ export class ApiError {
 }
 
 /**
- * 
  * @param {string} url 
  * @param {object} options 
  */
@@ -19,7 +18,7 @@ export async function apiFetch (url, options = {}) {
 		}, 
 		...options
 	})
-
+	// 204 = "no body"
 	if (response.status === 204) {
 		return null;
 	}

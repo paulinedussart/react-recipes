@@ -17,7 +17,7 @@
 
   // sideBar links
   a {
-    color: black;
+    color: var(--main-bg-black);
     /* display: block; */
     padding: 16px;
     border-radius: 30px;
@@ -28,7 +28,7 @@
   // sideBar links when hover and active
   a:hover,
   li.active a {
-    color: white;
+    color: var(--main-bg-white);
     background-color: var(--main-bg-green);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     transition: 0.2s;

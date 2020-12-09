@@ -16,8 +16,18 @@ code {
 }
 
 :root {
+  --main-bg-white: white;
+  --main-bg-yellow: #ffe10d;
   --main-bg-orange: #f5a25d;
+  --main-bg-light-red: #e26161;
+  --main-bg-red: #bb3636;
+  --main-bg-purple: #987ac7;
+  --main-bg-light-purple: #b391e8;
+  --main-bg-light-blue: #78b0f7;
+  --main-bg-blue: #5789ca;
   --main-bg-green: #426959;
+  --main-bg-light-green: #5c8273;
+  --main-bg-black: black;
 }
 
 /* Size of content in Site.jsx */

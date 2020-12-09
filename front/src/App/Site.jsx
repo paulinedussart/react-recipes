@@ -1,39 +1,59 @@
 // Functions 
 import React, { useEffect, useState } from "react";
 import { useIngredients } from "../hooks/ingredients";
+import { useRecipes } from "../hooks/recipes"
 import { Ingredients } from './ Ingredients/Ingredients'
+import { Recipes } from './Recipes/Recipes'
 // SCSS
 import "./../style/SideBar.scss";
+import "./../style/AppContent.scss";
 
 export function Site() {
 	// detect the actual page
-	const [page, setPage] = useState('ingredients');
+	const [page, setPage] = useState('recipes');
+	let content = null
+	
 	// get the hook useIngredients
 	const {
 		ingredients,
 		fetchIngredients,
 		deleteIngredient,
-		updateIngredient
+		updateIngredient, 
+		createIngredient
 	} = useIngredients()
-	let content = null
+
+	// get the hook useRecipes
+	const {
+		recipes,
+		fetchRecipes
+	} = useRecipes()
 
 	useEffect(() => {
 		if (page === "ingredients") {
 			fetchIngredients()
+		} else if (page === 'recipes') {
+			fetchRecipes()
 		}
 	}, [page])
 
 	if (page === 'ingredients') {
-		content = <Ingredients ingredients={ingredients} onDelete={deleteIngredient} onUpdate={updateIngredient} />
+		content = <Ingredients
+			ingredients={ingredients}
+			onDelete={deleteIngredient}
+			onUpdate={updateIngredient}
+			onCreate={createIngredient}	
+		/>
+	} else {
+		content = <Recipes recipes={recipes} />
 	}
 
 	return ( <div>
 		<LogoApp />
-		<div id="home-content"	className="row mt-4">
-			<div  className="col-md-auto  h-100">
+		<div id="home-content"	className="row">
+			<div  className="col-md-3">
 				<SideBar currentPage={page} onChangePage={setPage}/>
 			</div>
-			<div className="col-9">
+			<div className="col-md-9">
 				{content}
 			</div>
 		</div>
