@@ -43,7 +43,7 @@ export function Site() {
 			onUpdate={updateIngredient}
 			onCreate={createIngredient}	
 		/>
-	} else {
+	} else if ((page === 'recipes')) {
 		content = <Recipes recipes={recipes} />
 	}
 
@@ -96,5 +96,5 @@ function SideBar({ currentPage, onChangePage }) {
 
 // Logo App
 function LogoApp() {
-	return <div><i className="fas fa-cookie-bite p-3 fa-lg"></i><b id="title-app-bold-black">Flavour</b>	</div>
+	return <div className="p-2"><i className="fas fa-cookie-bite p-3 fa-lg"></i><b id="title-app-bold-black">Flavour</b>	</div>
 }

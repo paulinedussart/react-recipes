@@ -16,7 +16,7 @@ function reducer(state, action) {
 		case 'SET_RECIPES':
 			return {...state, listOfRecipes: action.payload, loading:false}
 		default:
-			throw new Error();
+			throw new Error("Unknow action" +  action.type );
 	}
 }
 
@@ -25,10 +25,10 @@ export function useRecipes() {
 	return {
 		recipes: state.listOfRecipes,
 		fetchRecipes: async function () {
-			dispatch({ type: "FETCHING_RECIPES" });
-			if (state.loading || state.listOfRecipes) {
+			if (state.loading || state.listOfRecipes !== null) {
 				return;
 			}
+			dispatch({ type: "FETCHING_RECIPES" });
 			const allRecipes = await apiFetch("/recipes")
 			dispatch({ type: "SET_RECIPES", payload: allRecipes });
 		}

@@ -67,6 +67,8 @@
   border: none;
   background-color: var(--main-bg-light-green);
   color: color;
+  position: absolute;
+  bottom: 20px;
   &:hover {
     transform: scale(1.05);
     background-color: var(--main-bg-green) !important;
@@ -81,4 +83,8 @@
     outline: none !important;
     background-color: var(--main-bg-green) !important;
   }
+}
+
+.btn-primary:focus {
+  box-shadow: none !important;
 }

@@ -33,4 +33,5 @@ code {
 /* Size of content in Site.jsx */
 #home-content {
   height: calc(100vh - 59px);
+  padding-top: 35px;
 }

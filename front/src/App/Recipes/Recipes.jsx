@@ -1,5 +1,6 @@
 // libraries
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 // functions
 import { Loader } from "../../shared/Loader"
@@ -29,17 +30,23 @@ function RecipeList({ recipes }) {
 	const icon = <i className='fas fa-star'></i>;
 	return (
 		<div className="cards">
-		{	recipes.map(recipe  => <Card key={recipe.title} id={recipe.id}>
-			<Card.Body >
-				{[...Array(getRandomArbitrary(2, 5))].map((e, i) => icon)}
+			{recipes.map(recipe =>
+				<Card key={recipe.id} >
+					<Card.Body>
+						{[...Array(getRandomArbitrary(2, 5))].map((e, i) => icon)}
 						<Card.Title>{recipe.title}</Card.Title>
 						<Card.Text>
-					{recipe.short}
+							{recipe.short}
 						</Card.Text>
-						<Button className="btn-green-details">Go somewhere</Button>
+						<Button className="btn-green-details">Details</Button>
 					</Card.Body>
-				</Card>)}
+				</Card>)
+			}
 			
 		</div>
 	)
+}
+
+Recipes.propTypes = {
+	recipes: PropTypes.array,
 }
