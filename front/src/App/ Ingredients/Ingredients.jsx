@@ -9,7 +9,7 @@ import { ApiError } from '../../functions/api';
 export function Ingredients({ ingredients, onDelete, onUpdate, onCreate }) {
 	return (
 		<div>
-			<h2>My Ingredients</h2>
+			<h2 className="mb-4">My Ingredients</h2>
 			<CreateIngredientForm onSubmit={onCreate}/>
 			{ingredients === null ?
 				<span className="d-flex justify-content-center mt-5">

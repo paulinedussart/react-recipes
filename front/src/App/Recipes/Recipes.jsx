@@ -3,20 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 // functions
-import { Loader } from "../../shared/Loader"
+import { Loader } from "../../shared/Loader";
+import { RecipeDetails } from "./Recipe";
 // scss
 import "../../style/Icon.scss"
 import "../../style/Card.scss"
 
-export const Recipes = ({ recipes }) => {
+export function Recipes ({ recipes, onClick }) {
+	if (recipes === null) {
+		return 	<Loader content={"recipes"} />
+	}
 	return (
-		<div >
-			<h2>My Recipes</h2>
-			{ recipes === null ?
-				<span className="d-flex justify-content-center mt-5">
-					<Loader content={"recipes"} />
-				</span> :
-				<RecipeList recipes={recipes} /> }
+		<div>
+			<h2 className="mb-4">My Recipes</h2>
+			<div className="row px-3">
+				{recipes.map(recipe => <div className="cards col-xs-12 col-md-4"><Recipe recipe={recipe} onClick={onClick} /></div>)}
+			</div>
 		</div>
 	)
 }
@@ -26,27 +28,25 @@ function getRandomArbitrary(min, max) {
 	return Math.ceil(number)
 }
 // expected output: 0, 1 or 2
-function RecipeList({ recipes }) {
+function Recipe({ recipe, onClick }) {
 	const icon = <i className='fas fa-star'></i>;
+
 	return (
-		<div className="cards">
-			{recipes.map(recipe =>
-				<Card key={recipe.id} >
-					<Card.Body>
-						{[...Array(getRandomArbitrary(2, 5))].map((e, i) => icon)}
-						<Card.Title>{recipe.title}</Card.Title>
-						<Card.Text>
-							{recipe.short}
-						</Card.Text>
-						<Button className="btn-green-details">Details</Button>
-					</Card.Body>
-				</Card>)
-			}
-			
-		</div>
+		<Card key={recipe.id} >
+			<RecipeDetails recipe={recipe} />
+			<Card.Body>
+				{[...Array(getRandomArbitrary(2, 5))].map((e, i) => icon)}
+				<Card.Title>{recipe.title}</Card.Title>
+				<Card.Text>
+					{recipe.short}
+				</Card.Text>
+				<Button onClick={() => onClick(recipe)} className="btn-green-details">Details</Button>
+			</Card.Body>
+		</Card>
 	)
 }
 
 Recipes.propTypes = {
 	recipes: PropTypes.array,
+	onClick: PropTypes.func.isRequired
 }

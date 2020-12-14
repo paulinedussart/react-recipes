@@ -25,7 +25,8 @@ export function Site() {
 	// get the hook useRecipes
 	const {
 		recipes,
-		fetchRecipes
+		fetchRecipes,
+		fetchRecipe
 	} = useRecipes()
 
 	useEffect(() => {
@@ -44,13 +45,13 @@ export function Site() {
 			onCreate={createIngredient}	
 		/>
 	} else if ((page === 'recipes')) {
-		content = <Recipes recipes={recipes} />
+		content = <Recipes recipes={recipes} onClick={fetchRecipe}/>
 	}
 
 	return ( <div>
 		<LogoApp />
 		<div id="home-content"	className="row">
-			<div  className="col-md-3">
+			<div className="col-md-3">
 				<SideBar currentPage={page} onChangePage={setPage}/>
 			</div>
 			<div className="col-md-9">
