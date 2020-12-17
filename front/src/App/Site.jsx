@@ -4,9 +4,11 @@ import { useIngredients } from "../hooks/ingredients";
 import { useRecipes } from "../hooks/recipes"
 import { Ingredients } from './ Ingredients/Ingredients'
 import { Recipes } from './Recipes/Recipes'
+import { RecipeDetails } from "./Recipes/RecipeDetails";
 // SCSS
 import "./../style/SideBar.scss";
 import "./../style/AppContent.scss";
+import { Loader } from "../shared/Loader";
 
 export function Site() {
 	// detect the actual page
@@ -25,6 +27,7 @@ export function Site() {
 	// get the hook useRecipes
 	const {
 		recipes,
+		recipe,
 		fetchRecipes,
 		fetchRecipe
 	} = useRecipes()
@@ -55,6 +58,7 @@ export function Site() {
 				<SideBar currentPage={page} onChangePage={setPage}/>
 			</div>
 			<div className="col-md-9">
+				{recipe ? <RecipeDetails recipe={recipe} /> : null }
 				{content}
 			</div>
 		</div>

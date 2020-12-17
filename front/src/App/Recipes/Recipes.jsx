@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 // functions
 import { Loader } from "../../shared/Loader";
-import { RecipeDetails } from "./Recipe";
+import { RecipeDetails } from "./RecipeDetails";
 // scss
 import "../../style/Icon.scss"
 import "../../style/Card.scss"
@@ -17,7 +17,7 @@ export function Recipes ({ recipes, onClick }) {
 		<div>
 			<h2 className="mb-4">My Recipes</h2>
 			<div className="row px-3">
-				{recipes.map(recipe => <div className="cards col-xs-12 col-md-4"><Recipe recipe={recipe} onClick={onClick} /></div>)}
+				{recipes.map(recipe => <div className="cards col-xs-12 col-md-4"><Recipe key={recipe.id} recipe={recipe} onClick={onClick} /></div>)}
 			</div>
 		</div>
 	)
@@ -33,7 +33,7 @@ function Recipe({ recipe, onClick }) {
 
 	return (
 		<Card key={recipe.id} >
-			<RecipeDetails recipe={recipe} />
+			{/* <RecipeDetails recipe={recipe} /> */}
 			<Card.Body>
 				{[...Array(getRandomArbitrary(2, 5))].map((e, i) => icon)}
 				<Card.Title>{recipe.title}</Card.Title>
