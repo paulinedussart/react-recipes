@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 export function Modal({onClose, children, title}) {
 	return createPortal(<>
 		<div className="modal show fade" role="dialog" tabindex="-1" style={{ display:'block' }}>
-			<div className="modal-dialog">
+			<div className="modal-dialog modal-xl">
 				<div className="modal-content">
 					<div className="modal-header">
 						<h5 className="modal-title">{title}</h5>
@@ -16,7 +16,6 @@ export function Modal({onClose, children, title}) {
 					</div>
 					<div className="modal-footer">
 						<button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onClose}>Close</button>
-						<button type="button" className="btn btn-primary">Save changes</button>
 					</div>
 				</div>
 			</div>

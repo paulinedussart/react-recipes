@@ -1,10 +1,9 @@
 // libraries
-import React from 'react';
+import { React, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 // functions
 import { Loader } from "../../shared/Loader";
-import { RecipeDetails } from "./RecipeDetails";
 // scss
 import "../../style/Icon.scss"
 import "../../style/Card.scss"
@@ -28,7 +27,7 @@ function getRandomArbitrary(min, max) {
 	return Math.ceil(number)
 }
 // expected output: 0, 1 or 2
-function Recipe({ recipe, onClick }) {
+const Recipe = memo(function ({ recipe, onClick }) {
 	const icon = <i className='fas fa-star'></i>;
 
 	return (
@@ -44,7 +43,7 @@ function Recipe({ recipe, onClick }) {
 			</Card.Body>
 		</Card>
 	)
-}
+})
 
 Recipes.propTypes = {
 	recipes: PropTypes.array,

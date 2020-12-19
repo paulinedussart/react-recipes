@@ -22,6 +22,8 @@ function reducer(state, action) {
 			return { ...state, listOfRecipes: state.listOfRecipes.map(r => r.id === action.payload.id ? action.payload : r )}
 		case 'FETCHING_RECIPE':
 			return { ...state, recipeId: action.payload.id }
+		case 'DESELECT_RECIPE':
+			return { ...state, recipeId: null}
 		default:
 			throw new Error("Unknow action" +  action.type );
 	}
@@ -45,11 +47,16 @@ export function useRecipes() {
 			const allRecipes = await apiFetch("/recipes");
 			dispatch({ type: "SET_RECIPES", payload: allRecipes });
 		},
-		fetchRecipe: async function (recipe) {
+		fetchRecipe: useCallback( async function (recipe) {
 			// lorsque l'on recupère une recette, on va appeler fetching_recipe et on va lui indiquer quelle recette on veut récupérer. 
 			dispatch({ type: "FETCHING_RECIPE", payload: recipe })
-			const theRecipe = await apiFetch("/recipes/" + recipe.id);
-			dispatch({ type: "SET_RECIPE", payload: theRecipe})
+			if (!recipe.content) {
+				const theRecipe = await apiFetch("/recipes/" + recipe.id);
+				dispatch({ type: "SET_RECIPE", payload: theRecipe})
+			}
+		}, []), 
+		deselectRecipe: async function () {
+			dispatch({ type: "DESELECT_RECIPE"})
 		}
 	}
 }

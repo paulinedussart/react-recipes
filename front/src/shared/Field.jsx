@@ -5,7 +5,11 @@ export const Field = ({name, children, type = "text", error, ...props}) => {
 	return (
 		<div className="p-2">
 			{/* here children are used for the labelfield */}
-			<input type={type} name={name} id={name} className={`form-control ${error ? 'is-invalid' : ''}`} {...props}/>
+			{ type === 'textarea' ?
+				<textarea name={name} id={name} className={`form-control ${error ? 'is-invalid' : ''}`} {...props} />
+				:
+				<input type={type} name={name} id={name} className={`form-control ${error ? 'is-invalid' : ''}`} {...props} />
+			}
 			{error && <div className="invalid-feedback mt-0">{error}</div>}
 		</div>
 	);
