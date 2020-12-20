@@ -88,3 +88,49 @@
 .btn-primary:focus {
   box-shadow: none !important;
 }
+
+.btn-green-valid {
+  border: none;
+  background-color: var(--main-bg-light-green);
+  color: var(--main-bg-white);
+  &:hover {
+    transform: scale(1.05);
+    background-color: var(--main-bg-green) !important;
+    color: var(--main-bg-white);
+  }
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+    outline: none !important;
+    background-color: var(--main-bg-green) !important;
+    color: var(--main-bg-white);
+  }
+  &:focus {
+    outline: none !important;
+    background-color: var(--main-bg-green) !important;
+    color: var(--main-bg-white);
+  }
+}
+
+.btn-red-valid {
+  border: none;
+  background-color: var(--main-bg-light-red);
+  color: var(--main-bg-white);
+  &:hover {
+    transform: scale(1.05);
+    background-color: var(--main-bg-red) !important;
+    color: var(--main-bg-white);
+  }
+  &:active {
+    /* Scaling button to 0.85 to its original size */
+    transform: scale(0.85);
+    outline: none !important;
+    background-color: var(--main-bg-red) !important;
+    color: var(--main-bg-white);
+  }
+  &:focus {
+    outline: none !important;
+    background-color: var(--main-bg-red) !important;
+    color: var(--main-bg-white);
+  }
+}

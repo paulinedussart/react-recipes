@@ -6,7 +6,7 @@ import { useToggle } from "../hooks/generic"
 import { Ingredients } from './ Ingredients/Ingredients'
 import { Recipes } from './Recipes/Recipes'
 import { RecipeDetails } from "./Recipes/RecipeDetails";
-import { CreateRecipeModal } from "./Recipes/CreateRecipe";
+import { CreateRecipeModal } from "./Recipes/RecipeForm";
 import { Modal } from "./../shared/Modal"
 // SCSS
 import "./../style/SideBar.scss";
@@ -15,7 +15,7 @@ import "./../style/AppContent.scss";
 export function Site() {
 	// detect the actual page
 	const [page, setPage] = useState('recipes');
-	const [add, toggleAdd] = useToggle(true);
+	const [add, toggleAdd] = useToggle(false);
 
 	let content = null
 	
@@ -34,16 +34,19 @@ export function Site() {
 		recipe,
 		deselectRecipe,
 		fetchRecipes,
-		fetchRecipe
+		fetchRecipe, 
+		createRecipe, 
+		updateRecipe,
+		deleteRecipe
 	} = useRecipes()
 
 	useEffect(() => {
-		if (page === "ingredients") {
+		if (page === "ingredients" || add === true) {
 			fetchIngredients()
 		} else if (page === 'recipes') {
 			fetchRecipes()
 		}
-	}, [page, fetchIngredients, fetchRecipes])
+	}, [page, add])
 
 	if (page === 'ingredients') {
 		content = <Ingredients
@@ -53,7 +56,7 @@ export function Site() {
 			onCreate={createIngredient}	
 		/>
 	} else if ((page === 'recipes')) {
-		content = <Recipes recipes={recipes} onClick={fetchRecipe}/>
+		content = <Recipes recipes={recipes} onClick={fetchRecipe} onDelete={deleteRecipe}/>
 	}
 
 	return ( <div>
@@ -63,10 +66,18 @@ export function Site() {
 				<SideBar currentPage={page} onChangePage={setPage} onButtonClick={toggleAdd}/>
 			</div>
 			<div className="col-md-9">
-				{JSON.stringify(add)}
-				{recipe ? <RecipeDetails recipe={recipe} onClose={deselectRecipe} /> : null}
-				{add && <Modal title='Créer une nouvelle recette' onClose={toggleAdd}>
-									<CreateRecipeModal />
+				{recipe ? <RecipeDetails
+										recipe={recipe}
+										ingredients={ingredients}
+										onClose={deselectRecipe}
+										onEdit={fetchIngredients}
+										
+										onUpdate={updateRecipe}
+										/> : null}
+				{add && <Modal title='Create a new recipe' onClose={toggleAdd}>
+									<CreateRecipeModal
+										ingredients={ingredients}
+										onSubmit={createRecipe} />
 								</Modal>}
 				{content}
 			</div>

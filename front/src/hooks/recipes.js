@@ -17,13 +17,18 @@ function reducer(state, action) {
 			return { ...state, loading: true };
 		case 'SET_RECIPES':
 			return { ...state, listOfRecipes: action.payload, loading: false }
+		// it is the same as UPDATE_RECIPE
 		case 'SET_RECIPE':
 			// changer la recette qui correspond à notre payload
 			return { ...state, listOfRecipes: state.listOfRecipes.map(r => r.id === action.payload.id ? action.payload : r )}
 		case 'FETCHING_RECIPE':
 			return { ...state, recipeId: action.payload.id }
 		case 'DESELECT_RECIPE':
-			return { ...state, recipeId: null}
+			return { ...state, recipeId: null }
+		case 'DELETE _RECIPE':
+			return { ...state, listOfRecipes: state.listOfRecipes.filter( r => r !==  action.payload) }
+		case 'ADD_RECIPE':
+			return { ...state, listOfRecipes: [action.payload, ...state.listOfRecipes] }
 		default:
 			throw new Error("Unknow action" +  action.type );
 	}
@@ -50,13 +55,34 @@ export function useRecipes() {
 		fetchRecipe: useCallback( async function (recipe) {
 			// lorsque l'on recupère une recette, on va appeler fetching_recipe et on va lui indiquer quelle recette on veut récupérer. 
 			dispatch({ type: "FETCHING_RECIPE", payload: recipe })
-			if (!recipe.content) {
+			if (!recipe.ingredients) {
 				const theRecipe = await apiFetch("/recipes/" + recipe.id);
 				dispatch({ type: "SET_RECIPE", payload: theRecipe})
 			}
 		}, []), 
+		createRecipe: useCallback(async function (data) {
+			const recipe = await apiFetch("/recipes", {
+				method: "POST", 
+				body: data
+			})
+			dispatch({type: "ADD_RECIPE", payload: recipe})
+		}),
 		deselectRecipe: async function () {
 			dispatch({ type: "DESELECT_RECIPE"})
-		}
+		}, 
+		updateRecipe: useCallback(async function (recipe, data) {
+			const theRecipe = await apiFetch("/recipes/" + recipe.id, {
+				method: "PUT",
+				body: data
+			})
+			dispatch({ type: "SET_RECIPE", payload: theRecipe })
+		}),
+		deleteRecipe: useCallback(async function (recipe) {
+			const theRecipe = await apiFetch("/recipes/" + recipe.id, {
+				method: "DELETE"
+			})
+			dispatch({ type: "DELETE_RECIPE", payload: theRecipe })
+		})
+
 	}
 }
